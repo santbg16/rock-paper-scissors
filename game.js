@@ -26,14 +26,36 @@ function getComputerChoice() {
 second attempt try to get a working result from random number*/
 let randomNumber = Math.floor(Math.random()*3);
     if (randomNumber === 0) {
-        compChoice = "Rock";
+        compChoice = "rock";
     }
     else if (randomNumber === 1) {
-        compChoice = "Paper";
+        compChoice = "paper";
     }
     else if (randomNumber === 2){
-        compChoice = "Scissors";
+        compChoice = "scissors";
     }
-console.log(compChoice);
+//console.log(compChoice);
 //So far works to get a random number 0,1,2
-
+// By getting compChoice managed to get rock, paper or scissors
+let userChoice = prompt("Rock, Paper or Scissors?","");
+userChoice = userChoice.toLowerCase();
+//console.log(userChoice);
+//Prompt user to imput choice and changed to lower case
+let winner = (compChoice , userChoice)
+    if (compChoice === userChoice) {
+        result = "Tie! Try again";
+    }
+    else if (compChoice === "rock" && userChoice === "paper") {
+        result = "You win!";
+    }
+    else if (compChoice === "paper" && userChoice === "scissors") {
+        result = "You win!";
+    }
+    else if (compChoice === "scissors" && userChoice === "rock") {
+        result = "You win!";
+    }
+    else {
+        result = "You loose :(";
+    }
+console.log(result)
+//finally managed to play. Works till here. 
