@@ -99,3 +99,55 @@ let compScore = 0
     return "Your score: " + userScore + " Computer score: " + compScore
   }
   console.log(displayScore())
+  // to play again has to call and execute function for entire game until user score or compscore is = 5
+  let newGame = function(){
+    let userChoice = prompt("Next Round! Rock, Paper or Scissors?","");
+    userChoice = userChoice.toLowerCase();
+    let randomNumber = Math.floor(Math.random()*3);
+        if (randomNumber === 0) {
+            compChoice = "rock";
+        }
+        else if (randomNumber === 1) {
+            compChoice = "paper";
+        }
+        else if (randomNumber === 2){
+            compChoice = "scissors";
+        }
+        console.log(compChoice)
+    if (compChoice === userChoice) {
+        result = "Tie! Try again";
+    }
+    else if (compChoice === "rock" && userChoice === "paper") {
+        result = "You win!";
+    }
+    else if (compChoice === "paper" && userChoice === "scissors") {
+        result = "You win!";
+    }
+    else if (compChoice === "scissors" && userChoice === "rock") {
+        result = "You win!";
+    }
+    else if (userChoice === null || ""){
+        result = "Try imput again";
+    } //previous condition does not work
+    else {
+        result = "You loose :(";
+    }
+console.log(result)
+  }
+  if (result === "You win!") {
+    userScore++
+  } 
+  else if (result === "You loose :(") {
+    compScore++
+  }
+  console.log(userScore,compScore)
+  console.log(displayScore())
+  if (userScore === 5) {
+    alert("You won the game")
+  }
+  else if (compScore === 5) {
+    alert("You lost the game")
+  }
+  else if (userScore < 5 && compScore <5) {
+    newGame()
+  }
