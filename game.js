@@ -174,11 +174,12 @@ let displayScore = function() {
     }
     console.log(displayScore());
 
-let userChoice = prompt("Rock, Paper or Scissors","Choose")
-    userChoice = userChoice.toLowerCase();
-    console.log(userChoice);
+
 
 let game = function() {
+    let userChoice = prompt("Rock, Paper or Scissors","Choose")
+    userChoice = userChoice.toLowerCase();
+    console.log(userChoice);
     let randomNumber = Math.floor(Math.random()*3);
     if (randomNumber === 0) {
         compChoice = "rock";
@@ -209,9 +210,8 @@ let game = function() {
 //more tidy 
             let playRound = function() {    
             for (let i = 0; i < 5; i++) {
-                if (userScore < 5 || compScore < 5) {
+                if (userScore < 5 && compScore < 5) {
                     game()
-                    playRound()
                 }
                 else if (userScore === 5) {
                     finalScore = "You won the game!"
@@ -219,8 +219,11 @@ let game = function() {
                 else if (compScore === 5) {
                     finalScore = "You lost the game. Try again"
                 }
-
             }
+            console.log(finalScore)
+            }
+            if (userScore < 5 && compScore < 5){
+                playRound()
             }
 
 }
